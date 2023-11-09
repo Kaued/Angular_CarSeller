@@ -1,0 +1,35 @@
+<aside class="side">
+
+  <mat-drawer-container class="nav" autosize>
+    <mat-drawer #sideNav class="nav-content" mode="over">
+
+      <div class="nav-content__close">
+        <button type="button" mat-button (click)="sideNav.toggle()">
+          <fa-icon [icon]="faXmark"></fa-icon>
+        </button>
+      </div>
+
+      <figure class="nav-content__logo">
+        <img src="/assets/logo.png" alt="logo" />
+      </figure>
+
+      <section class="nav-list">
+        <button type="button" mat-button class="nav-list__item">
+          <fa-icon [icon]="faXmark"></fa-icon>
+        </button>
+      </section>
+
+    </mat-drawer>
+  </mat-drawer-container>
+
+  <nav class="side-nav">
+
+    <figure>
+      <img src="/assets/logo.png" alt="logo" />
+    </figure>
+    <button type="button" mat-button (click)="sideNav.toggle()">
+      <fa-icon [icon]="faBars"></fa-icon>
+      <h1>Open</h1>
+    </button>
+  </nav>
+</aside>
