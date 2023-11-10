@@ -1,0 +1,44 @@
+@import "../../../default/variable.scss";
+
+.table {
+  position: relative;
+
+  th {
+    background-color: $colorPrimary;
+    font-size: 16px;
+    color: $textColor;
+    padding: 20px;
+    text-align: center;
+  }
+
+  td {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: $text;
+    text-align: center;
+
+    &:nth-child(1) {
+      color: $colorPrimary;
+      font-weight: 700;
+    }
+
+    img{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  &-actions {
+    button {
+
+      margin-left: 20px;
+
+      &:nth-child(1) {
+        margin-left: 0px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,53 @@
+<section class="table" *ngIf="!isLoading; else loading">
+  <mat-form-field class="example-full-width">
+    <mat-label>Number</mat-label>
+    <form [formGroup]="searchForm" #formDit="ngForm">
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput formControlName="search"
+        [matAutocomplete]="auto" (change)="sendChange()">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async"
+          [value]="option">{{option}}</mat-option>
+      </mat-autocomplete>
+    </form>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container *ngFor="let colum of columns" matColumnDef="{{ colum.column }}">
+      <th mat-header-cell *matHeaderCellDef> {{ colum.name | titlecase }} </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="colum.type == 'image'">
+          <img [src]="element[colum.field]" />
+        </ng-container>
+
+        <ng-container *ngIf="colum.type == 'text'">
+          {{ element[colum.field] }}
+        </ng-container>
+
+        <ng-container *ngIf="colum.type == 'money'">
+          R$ {{ element[colum.field].toFixed(2)}}
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let element" class="table-actions">
+        <button mat-fab color="primary" aria-label="Ver">
+          <fa-icon [icon]="faRectangleList">ver</fa-icon>
+        </button>
+        <button mat-fab color="accent" aria-label="Editar">
+          <fa-icon [icon]="faPen">editar</fa-icon>
+        </button>
+        <button mat-fab color="warn" aria-label="Excluir">
+          <fa-icon [icon]="faTrash">deletar</fa-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+
+<ng-template #loading>
+  <mat-spinner class="loading"></mat-spinner>
+</ng-template>

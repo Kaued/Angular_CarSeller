@@ -4,7 +4,7 @@
     <mat-drawer #sideNav class="nav-content" mode="over">
 
       <div class="nav-content__close">
-        <button type="button" mat-button (click)="sideNav.toggle()">
+        <button type="button" (click)="sideNav.toggle()">
           <fa-icon [icon]="faXmark"></fa-icon>
         </button>
       </div>
@@ -13,10 +13,13 @@
         <img src="/assets/logo.png" alt="logo" />
       </figure>
 
-      <section class="nav-list">
-        <button type="button" mat-button class="nav-list__item">
-          <fa-icon [icon]="faXmark"></fa-icon>
-        </button>
+      <section class="nav-list" *ngIf="linkRoutes">
+        <a *ngFor="let link of linkRoutes" class="nav-list__item" routerLink="{{ link.link }}" (click)="sideNav.toggle()">
+          <button type="button" mat-button>
+            <fa-icon [icon]="link.icon"></fa-icon>
+            <span>Vendedor</span>
+          </button>
+        </a>
       </section>
 
     </mat-drawer>
