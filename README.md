@@ -1,27 +1,52 @@
-# AngularCarSeller
+# Angular_CarSeller
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+This project is an Angular application that interacts with a Laravel API to manage car selling operations. The Laravel API is available [here](https://github.com/Kaued/Car_Seller).
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js 18: Make sure you have Node.js 18 installed on your machine.
+- Angular CLI: Install the Angular CLI globally by running the following command:
 
-## Code scaffolding
+    ```bash
+    npm install -g @angular/cli
+    ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+1. Clone the [Car_Seller](https://github.com/Kaued/Car_Seller) repository:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ```bash
+    git clone https://github.com/Kaued/Car_Seller.git
+    ```
 
-## Running unit tests
+2. Follow the instructions in the cloned repository to set up and run the Laravel API.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Clone the Angular_CarSeller repository:
 
-## Running end-to-end tests
+    ```bash
+    git clone https://github.com/Kaued/Angular_CarSeller.git  
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Navigate to the Angular_CarSeller directory:
 
-## Further help
+    ```bash
+    cd Angular_CarSeller
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+6. Run the Angular application:
+
+    ```bash
+    ng serve
+    ```
+
+7. Open your browser and navigate to `http://localhost:4200/` to use the application.
+
+## Usage
+
+Follow the instructions provided in the [Car_Seller](https://github.com/Kaued/Car_Seller) repository to understand how to use the API and integrate it with the Angular_CarSeller application.
