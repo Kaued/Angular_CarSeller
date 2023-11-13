@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faPen, faRectangleList, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Observable, map, startWith } from 'rxjs';
+import { Actions } from 'src/app/interfaces/actions';
 import { ColumnsTable } from 'src/app/interfaces/columns-table';
 import { Search } from 'src/app/interfaces/search';
 
@@ -15,8 +16,10 @@ export class TableComponent {
   @Input() isLoading: boolean = false;
   @Input() dataSource: Array<any> = [];
   @Input() columns!: ColumnsTable[];
-  @Input() actionOrigin!: string;
   @Output() search = new EventEmitter<Search>();
+  @Input() term!: string;
+  @Input() searchLabel!: string;
+  @Input() actions! : Actions[]
 
   displayedColumns: string[] = [];
   faRectangleList = faRectangleList;
@@ -38,8 +41,7 @@ export class TableComponent {
     });
 
     this.searchForm = new FormGroup({
-      search: new FormControl("", [Validators.required]),
-      type: new FormControl("name", [Validators.required])
+      search: new FormControl("")
     });
 
     this.filteredOptions = this.searchForm.get("search")!.valueChanges.pipe(
@@ -52,16 +54,23 @@ export class TableComponent {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    const filtered = this.dataSource.filter(option => option["name"].toLowerCase().includes(filterValue));
+    const filtered = this.dataSource.filter(option => option[this.term].toLowerCase().includes(filterValue));
 
     const result: string[] = [];
-    console.log(value);
-    filtered.forEach(item => result.push(item["name"]));
+    filtered.forEach(item => result.push(item[this.term]));
 
     return result;
   }
 
+  get valueSearch(){
+    return this.searchForm.get("search")!.value
+  }
+
   sendChange(){
-    this.search.emit()
+    const result : Search = {
+      search: this.valueSearch,
+      field: this.term
+    }
+    this.search.emit(result);
   }
 }

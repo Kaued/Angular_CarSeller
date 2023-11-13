@@ -8,6 +8,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +19,9 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TableComponent } from './components/table/table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormSellerComponent } from './components/form-seller/form-seller.component';
+import { InfoSellerComponent } from './components/info-seller/info-seller.component';
+import { DeleteSellerComponent } from './components/delete-seller/delete-seller.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +29,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SellerComponent,
     SideNavComponent,
     TableComponent,
+    FormSellerComponent,
+    InfoSellerComponent,
+    DeleteSellerComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

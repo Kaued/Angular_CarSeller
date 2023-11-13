@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Preencha os campos para adicioanr vendedor</p>
+  <form [formGroup]="sellerForm" class="seller-form">
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" #inputName>
+    </mat-form-field> 
+    <mat-form-field floatLabel="always">
+      <mat-label>Salário</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="salary" placeholder="0" #inputSalary>
+      <span matTextPrefix>R$&nbsp;</span>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Cancelar</button>
+  <button mat-button cdkFocusInitial color="primary" (click)="onSubmit()">Adicionar</button>
+</div>

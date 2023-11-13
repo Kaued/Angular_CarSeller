@@ -3,8 +3,12 @@
     <h1>
       Lista de Vendedores
     </h1>
+    <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar vendedor
+    </button>
   </header>
   <main class="seller-content">
-    <app-table [isLoading]="isLoading" [dataSource]="sellersList" [columns]="columns" [actionOrigin]="actionOrigin"></app-table>
+    <app-table [isLoading]="isLoading" [dataSource]="sellersList" [columns]="columns" [actions]="actions"
+      searchLabel="Nome Vendedor" term="name" (search)="searchSeller($event)"></app-table>
   </main>
 </section>

@@ -1,0 +1,21 @@
+@import '../../../default/variable.scss';
+.seller
+{
+  &-view{
+    display: flex;
+    flex-direction: column;
+
+    &__item{
+
+      strong{
+        font-size: 16px;
+        color: $text;
+        margin-right: 10px;
+      }
+
+      span{
+        font-size: 16px;
+      }
+    }
+  }
+}
