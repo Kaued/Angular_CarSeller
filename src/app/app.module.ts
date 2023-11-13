@@ -22,6 +22,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormSellerComponent } from './components/form-seller/form-seller.component';
 import { InfoSellerComponent } from './components/info-seller/info-seller.component';
 import { DeleteSellerComponent } from './components/delete-seller/delete-seller.component';
+import { CustomerComponent } from './pages/customer/customer.component';
+import { FormCustomerComponent } from './components/form-customer/form-customer.component';
+import { InfoCustomerComponent } from './components/info-customer/info-customer.component';
+import { DeleteCustomerComponent } from './components/delete-customer/delete-customer.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,10 @@ import { DeleteSellerComponent } from './components/delete-seller/delete-seller.
     FormSellerComponent,
     InfoSellerComponent,
     DeleteSellerComponent,
+    CustomerComponent,
+    FormCustomerComponent,
+    InfoCustomerComponent,
+    DeleteCustomerComponent,
   ],
   imports: [
     BrowserModule,

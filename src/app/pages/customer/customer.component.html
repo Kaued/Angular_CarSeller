@@ -1,0 +1,14 @@
+<section class="customer">
+  <header>
+    <h1>
+      Lista de Clientes
+    </h1>
+    <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar vendedor
+    </button>
+  </header>
+  <main class="customer-content">
+    <app-table [isLoading]="isLoading" [dataSource]="customersList" [columns]="columns" [actions]="actions"
+      searchLabel="Nome Vendedor" term="name" (search)="searchCustomer($event)"></app-table>
+  </main>
+</section>

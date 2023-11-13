@@ -17,7 +17,7 @@
         <a *ngFor="let link of linkRoutes" class="nav-list__item" routerLink="{{ link.link }}" (click)="sideNav.toggle()">
           <button type="button" mat-button>
             <fa-icon [icon]="link.icon"></fa-icon>
-            <span>Vendedor</span>
+            <span>{{ link.label }}</span>
           </button>
         </a>
       </section>
