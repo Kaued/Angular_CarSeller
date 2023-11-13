@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faBars, faCashRegister, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCashRegister, faMoneyBill, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NavRoutes } from 'src/app/interfaces/nav-routes';
 
 @Component({
@@ -14,6 +14,7 @@ export class SideNavComponent {
   faXmark =  faXmark;
   faCashRegister = faCashRegister;
   faUser = faUser;
+  faMoneyBill = faMoneyBill;
 
   linkRoutes: NavRoutes[]=[
     {
@@ -25,6 +26,11 @@ export class SideNavComponent {
       icon: faUser,
       link: "/customer",
       label: "Cliente"
+    },
+    {
+      icon: faMoneyBill,
+      link: "/payment",
+      label: "Pagamento"
     }
   ];
 }

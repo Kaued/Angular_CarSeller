@@ -26,6 +26,10 @@ import { CustomerComponent } from './pages/customer/customer.component';
 import { FormCustomerComponent } from './components/form-customer/form-customer.component';
 import { InfoCustomerComponent } from './components/info-customer/info-customer.component';
 import { DeleteCustomerComponent } from './components/delete-customer/delete-customer.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { FormPaymentComponent } from './components/form-payment/form-payment.component';
+import { InfoPaymentComponent } from './components/info-payment/info-payment.component';
+import { DeletePaymentComponent } from './components/delete-payment/delete-payment.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,10 @@ import { DeleteCustomerComponent } from './components/delete-customer/delete-cus
     FormCustomerComponent,
     InfoCustomerComponent,
     DeleteCustomerComponent,
+    PaymentComponent,
+    FormPaymentComponent,
+    InfoPaymentComponent,
+    DeletePaymentComponent,
   ],
   imports: [
     BrowserModule,

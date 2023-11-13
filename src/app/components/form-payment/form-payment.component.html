@@ -1,14 +1,14 @@
 <h1 mat-dialog-title>{{ title }}</h1>
 <div mat-dialog-content>
-  <p>Preencha os campos para adicioanar cliente</p>
-  <form [formGroup]="customerForm" class="customer-form">
+  <p>Preencha os campos para adicioanr o pagamento</p>
+  <form [formGroup]="paymentForm" class="payment-form">
     <mat-form-field>
       <mat-label>Nome</mat-label>
       <input matInput formControlName="name" #inputName>
     </mat-form-field>
     <mat-form-field floatLabel="always">
-      <mat-label>Idade</mat-label>
-      <input matInput type="number" class="example-right-align" formControlName="age" placeholder="0" #inputAge>
+      <mat-label>Taxa</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="tax" placeholder="0" #inputTax>
     </mat-form-field>
   </form>
 </div>

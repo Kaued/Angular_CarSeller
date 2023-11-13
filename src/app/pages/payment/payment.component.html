@@ -1,0 +1,14 @@
+<section class="payment">
+  <header>
+    <h1>
+      Lista de Pagamentos
+    </h1>
+    <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar pagamento
+    </button>
+  </header>
+  <main class="payment-content">
+    <app-table [isLoading]="isLoading" [dataSource]="paymentsList" [columns]="columns" [actions]="actions"
+      searchLabel="Nome Pagamento" term="name" (search)="searchPayment($event)"></app-table>
+  </main>
+</section>

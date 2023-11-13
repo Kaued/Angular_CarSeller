@@ -4,11 +4,11 @@
       Lista de Clientes
     </h1>
     <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
-      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar vendedor
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar cliente
     </button>
   </header>
   <main class="customer-content">
     <app-table [isLoading]="isLoading" [dataSource]="customersList" [columns]="columns" [actions]="actions"
-      searchLabel="Nome Vendedor" term="name" (search)="searchCustomer($event)"></app-table>
+      searchLabel="Nome Client" term="name" (search)="searchCustomer($event)"></app-table>
   </main>
 </section>
