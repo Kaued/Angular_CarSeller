@@ -37,6 +37,11 @@ export class SideNavComponent {
       icon: faCopyright,
       link: "/brand",
       label: "Marca"
+    },
+    {
+      icon: faCopyright,
+      link: "/carModel",
+      label: "Modelo"
     }
   ];
 }

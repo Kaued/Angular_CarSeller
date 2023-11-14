@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Preencha os campos para adicioanar cliente</p>
+  <form [formGroup]="carModelForm" class="carModel-form">
+
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" #inputName>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Ano</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="year" placeholder="0" #inputYear>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Portas</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="doors" placeholder="0" #inputDoors>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Assentos</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="seat" placeholder="0" #inputSeat>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Marca</mat-label>
+      <mat-select>
+        <mat-option value="">---</mat-option>
+        <ng-container *ngFor="let brand of brands">
+          <mat-option [value]="brand.id">{{brand.name}}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-checkbox class="me-2" formControlName="abs">Abs</mat-checkbox>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <mat-checkbox class="me-2" formControlName="airbag">AirBag</mat-checkbox>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Cancelar</button>
+  <button mat-button cdkFocusInitial color="primary" (click)="onSubmit()">Adicionar</button>
+</div>

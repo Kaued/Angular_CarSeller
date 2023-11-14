@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Dados do Modelo</p>
+  <div class="seller-view">
+    <div class="seller-view__item">
+      <strong>Nome:</strong>
+      <span>{{ data.name }}</span>
+    </div>
+    <div class="seller-view__item">
+      <strong>Ano:</strong>
+      <span>{{ data.year }}</span>
+    </div>
+    <div class="seller-view__item">
+      <strong>Portas:</strong>
+      <span>{{ data.doors }}</span>
+    </div>
+    <div class="seller-view__item">
+      <strong>Assentos:</strong>
+      <span>{{ data.seat }}</span>
+    </div>
+    <div class="seller-view__item">
+      <strong>AirBag:</strong>
+      <span>{{ data.airbag }}</span>
+    </div>
+    <div class="seller-view__item">
+      <strong>Abs:</strong>
+      <span>{{ data.abs }}</span>
+    </div>
+    <div class="seller-view__item">
+      <strong>Marca:</strong>
+      <span>{{ brand.name }}</span>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Fechar</button>
+</div>

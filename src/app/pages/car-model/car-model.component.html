@@ -1,0 +1,14 @@
+<section class="carModel">
+  <header>
+    <h1>
+      Lista de Modelos de Carro
+    </h1>
+    <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar modelo
+    </button>
+  </header>
+  <main class="carModel-content">
+    <app-table [isLoading]="isLoading" [dataSource]="carModelsList" [columns]="columns" [actions]="actions"
+      searchLabel="Nome Modelo" term="name" (search)="searchCarModel($event)"></app-table>
+  </main>
+</section>

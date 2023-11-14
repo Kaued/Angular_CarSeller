@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -36,6 +37,10 @@ import { DeleteBrandComponent } from './components/delete-brand/delete-brand.com
 import { InfoBrandComponent } from './components/info-brand/info-brand.component';
 import { DropzoneComponent } from './components/dropzone/dropzone.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { CarModelComponent } from './pages/car-model/car-model.component';
+import { FormCarModelComponent } from './components/form-car-model/form-car-model.component';
+import { DeleteCarModelComponent } from './components/delete-car-model/delete-car-model.component';
+import { InfoCarModelComponent } from './components/info-car-model/info-car-model.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +64,10 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     DeleteBrandComponent,
     InfoBrandComponent,
     DropzoneComponent,
+    CarModelComponent,
+    FormCarModelComponent,
+    DeleteCarModelComponent,
+    InfoCarModelComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +87,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     MatDialogModule,
     MatSnackBarModule,
     HttpClientModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
