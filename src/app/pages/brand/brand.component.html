@@ -1,0 +1,14 @@
+<section class="brand">
+  <header>
+    <h1>
+      Lista de Marcas
+    </h1>
+    <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar Marcar
+    </button>
+  </header>
+  <main class="brand-content">
+    <app-table [isLoading]="isLoading" [dataSource]="brandsList" [columns]="columns" [actions]="actions"
+      searchLabel="Nome Marca" term="name" (search)="searchBrand($event)"></app-table>
+  </main>
+</section>

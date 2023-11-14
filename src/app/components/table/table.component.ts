@@ -5,6 +5,7 @@ import { Observable, map, startWith } from 'rxjs';
 import { Actions } from 'src/app/interfaces/actions';
 import { ColumnsTable } from 'src/app/interfaces/columns-table';
 import { Search } from 'src/app/interfaces/search';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-table',
@@ -28,6 +29,8 @@ export class TableComponent {
 
   searchForm!: FormGroup;
   filteredOptions!: Observable<string[]>;
+
+  baseApiUrl: string = `${environment.baseApiUrl}/storage/`;
 
   ngOnInit() {
     this.columns.forEach(column => {

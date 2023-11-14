@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Dados do usuário</p>
+  <div class="brand-view">
+    <div class="brand-view__item">
+      <strong>Nome:</strong>
+      <span>{{ data.name }}</span>
+    </div>
+    <div class="brand-view__item">
+      <strong>Imagem:</strong>
+      <img [src]="image"/>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Fechar</button>
+</div>

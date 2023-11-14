@@ -30,6 +30,12 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { FormPaymentComponent } from './components/form-payment/form-payment.component';
 import { InfoPaymentComponent } from './components/info-payment/info-payment.component';
 import { DeletePaymentComponent } from './components/delete-payment/delete-payment.component';
+import { BrandComponent } from './pages/brand/brand.component';
+import { FormBrandComponent } from './components/form-brand/form-brand.component';
+import { DeleteBrandComponent } from './components/delete-brand/delete-brand.component';
+import { InfoBrandComponent } from './components/info-brand/info-brand.component';
+import { DropzoneComponent } from './components/dropzone/dropzone.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -48,6 +54,11 @@ import { DeletePaymentComponent } from './components/delete-payment/delete-payme
     FormPaymentComponent,
     InfoPaymentComponent,
     DeletePaymentComponent,
+    BrandComponent,
+    FormBrandComponent,
+    DeleteBrandComponent,
+    InfoBrandComponent,
+    DropzoneComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +77,8 @@ import { DeletePaymentComponent } from './components/delete-payment/delete-payme
     MatFormFieldModule,
     MatDialogModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]

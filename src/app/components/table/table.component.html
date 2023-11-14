@@ -13,8 +13,12 @@
     <ng-container *ngFor="let colum of columns" matColumnDef="{{ colum.column }}">
       <th mat-header-cell *matHeaderCellDef> {{ colum.name | titlecase }} </th>
       <td mat-cell *matCellDef="let element">
-        <ng-container *ngIf="colum.type == 'image'">
+        <ng-container *ngIf="colum.type == 'image' && !colum.baseApiUrL">
           <img [src]="element[colum.field]" />
+        </ng-container>
+
+        <ng-container *ngIf="colum.type == 'image' && colum.baseApiUrL">
+          <img [src]="baseApiUrl+element[colum.field]" />
         </ng-container>
 
         <ng-container *ngIf="colum.type == 'text'">

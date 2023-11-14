@@ -1,0 +1,21 @@
+@import '../../../default/variable.scss';
+
+* {
+  font-family: Lato;
+}
+
+ngx-dropzone,
+.custom-dropzone {
+  margin: 20px;
+}
+
+.custom-dropzone {
+  height: 250px;
+  color: $colorPrimary;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.custom-dropzone.ngx-dz-hovered {
+  border: 5px solid rgb(235, 79, 79);
+}
