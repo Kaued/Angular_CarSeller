@@ -12,6 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +49,10 @@ import { CarComponent } from './pages/car/car.component';
 import { FormCarComponent } from './components/form-car/form-car.component';
 import { DeleteCarComponent } from './components/delete-car/delete-car.component';
 import { InfoCarComponent } from './components/info-car/info-car.component';
+import { SaleComponent } from './pages/sale/sale.component';
+import { FormSaleComponent } from './components/form-sale/form-sale.component';
+import { InfoSaleComponent } from './components/info-sale/info-sale.component';
+import { DeleteSaleComponent } from './components/delete-sale/delete-sale.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +84,11 @@ import { InfoCarComponent } from './components/info-car/info-car.component';
     FormCarComponent,
     DeleteCarComponent,
     InfoCarComponent,
+    SaleComponent,
+    FormSaleComponent,
+    InfoSaleComponent,
+    DeleteSaleComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -98,7 +110,10 @@ import { InfoCarComponent } from './components/info-car/info-car.component';
     HttpClientModule,
     NgxDropzoneModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

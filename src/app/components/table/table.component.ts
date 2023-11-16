@@ -76,4 +76,8 @@ export class TableComponent {
     }
     this.search.emit(result);
   }
+
+  setDate(element: string){
+    return new Date(element).toLocaleDateString('pt-BR');
+  }
 }

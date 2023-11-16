@@ -1,0 +1,14 @@
+<section class="sale">
+  <header>
+    <h1>
+      Lista de Vendas
+    </h1>
+    <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar nova venda
+    </button>
+  </header>
+  <main class="sale-content">
+    <app-table [isLoading]="isLoading" [dataSource]="salesList" [columns]="columns" [actions]="actions"
+      searchLabel="Data da compra" term="sold_data" (search)="searchSale($event)"></app-table>
+  </main>
+</section>

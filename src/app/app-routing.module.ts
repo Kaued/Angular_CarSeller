@@ -6,6 +6,7 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { BrandComponent } from './pages/brand/brand.component';
 import { CarModelComponent } from './pages/car-model/car-model.component';
 import { CarComponent } from './pages/car/car.component';
+import { SaleComponent } from './pages/sale/sale.component';
 
 const routes: Routes = [
   {path:"seller", component:SellerComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"brand", component:BrandComponent},
   {path:"carModel", component:CarModelComponent},
   {path:"car", component:CarComponent},
+  { path: "sale", component: SaleComponent },
 ];
 
 @NgModule({

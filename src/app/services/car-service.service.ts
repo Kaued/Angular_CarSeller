@@ -18,7 +18,7 @@ export class CarServiceService {
     return this.http.post<FormCar>(`${this.apiUrl}/car`, formCar);
   }
 
-  getAllCar(filter: string = ""): Observable<CarValues[]> {
+  getAllCar(filter: string = "") {
 
     if (filter !== "") {
       return this.http.get<CarValues[]>(`${this.apiUrl}/car?filter=price:>=:${filter}&with=carModel`);
@@ -26,6 +26,11 @@ export class CarServiceService {
     return this.http.get<CarValues[]>(`${this.apiUrl}/car?with=carModel`);
   }
 
+  getNotSoldCar(): Observable<CarValues[]>{
+
+    return this.http.get<CarValues[]>(`${this.apiUrl}/car?filter=sold:=:false`);
+
+  }
   getCar(id: number): Observable<CarValues[]> {
 
     return this.http.get<CarValues[]>(`${this.apiUrl}/car/${id}`);

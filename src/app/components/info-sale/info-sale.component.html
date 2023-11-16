@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Dados do Modelo</p>
+  <div class="sale-view">
+    <div class="sale-view__item">
+      <strong>Preço:</strong>
+      <span>R${{ data.total_price }}</span>
+    </div>
+    <div class="sale-view__item">
+      <strong>Data:</strong>
+      <span>{{ data.sold_data }}</span>
+    </div>
+    <div class="sale-view__item">
+      <strong>Cliente:</strong>
+      <span>{{ data.customer.name }}</span>
+    </div>
+    <div class="sale-view__item">
+      <strong>Vendedores:</strong>
+      <span>{{ data.seller.name }}</span>
+    </div>
+    <div class="sale-view__item">
+      <strong>Pagamento:</strong>
+      <span>{{ data.payment_method.name }}</span>
+    </div>
+    <div class="car-view__item d-block">
+      <strong class="w-100 d-block">Carro:</strong>
+      <img [src]="image" />
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Fechar</button>
+</div>

@@ -32,6 +32,10 @@
         <ng-container *ngIf="colum.type == 'boolean'">
           {{ element[colum.field] ? 'Sim' : 'Não'}}
         </ng-container>
+
+        <ng-container *ngIf="colum.type == 'date'">
+          {{ setDate(element[colum.field])}}
+        </ng-container>
       </td>
     </ng-container>
 

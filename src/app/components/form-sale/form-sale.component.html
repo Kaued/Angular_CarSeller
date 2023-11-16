@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Preencha os campos para adicioanar cliente</p>
+  <form [formGroup]="saleForm" class="sale-form">
+
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar [(selected)]="dateSelect"></mat-calendar>
+    </mat-card>
+
+    <ng-container *ngIf="!data.isAddMode">
+      <mat-form-field m-field floatLabel="always">
+        <mat-label>Total</mat-label>
+        <input matInput type="number" class="example-right-align" formControlName="total_price" placeholder="0" #inputTotal>
+      </mat-form-field>
+    </ng-container>
+
+    <mat-label>Cliente</mat-label>
+    <mat-select formControlName="customer_id" #inputCustomer>
+      <mat-option value="">---</mat-option>
+      <ng-container *ngFor="let customer of customers">
+        <mat-option [value]="customer.id">{{customer.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+
+    <mat-label>Carro</mat-label>
+    <mat-select formControlName="car_id" #inputCar>
+      <mat-option value="">---</mat-option>
+      <ng-container *ngFor="let car of cars">
+        <mat-option [value]="car.id"><img [src]="baseFileUrl+'/'+car.image_url"
+            class="carModel-form__brand" />{{ car.price }}</mat-option>
+      </ng-container>
+    </mat-select>
+
+    <mat-label>Vendedores</mat-label>
+    <mat-select formControlName="seller_id" #inputSeller>
+      <mat-option value="">---</mat-option>
+      <ng-container *ngFor="let seller of sellers">
+        <mat-option [value]="seller.id">{{seller.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+
+
+    <mat-label>Pagamento</mat-label>
+    <mat-select formControlName="payment_method_id" #inputPayment>
+      <mat-option value="">---</mat-option>
+      <ng-container *ngFor="let payment of payments">
+        <mat-option [value]="payment.id">{{payment.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+
+
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Cancelar</button>
+  <button mat-button cdkFocusInitial color="primary" (click)="onSubmit()">Adicionar</button>
+</div>
