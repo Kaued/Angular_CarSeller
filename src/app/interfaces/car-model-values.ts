@@ -1,3 +1,5 @@
+import { BrandValues } from "./brand-values";
+
 export interface CarModelValues {
     id?: number,
     name: string,
@@ -6,5 +8,6 @@ export interface CarModelValues {
     seat: number,
     airbag:boolean,
     abs:boolean,
-    brand_id: number
+    brand_id: number,
+    brand: BrandValues
 }

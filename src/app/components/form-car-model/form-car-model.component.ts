@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { BrandValues } from 'src/app/interfaces/brand-values';
 import { FormCarModel } from 'src/app/interfaces/form-car-model';
 import { BrandService } from 'src/app/services/brand.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-form-car-model',
@@ -20,6 +21,7 @@ export class FormCarModelComponent {
   @ViewChild('inputDoors') inputDoors!: ElementRef;
   @ViewChild('inputSeat') inputSeat!: ElementRef;
   @ViewChild('inputBrandId') inputBrandId!: ElementRef;
+  baseFileUrl: string = `${environment.baseApiUrl}/storage/`;
 
   constructor(
     public dialogRef: MatDialogRef<FormCarModelComponent>,

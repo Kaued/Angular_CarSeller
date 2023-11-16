@@ -23,22 +23,19 @@
       <input matInput type="number" class="example-right-align" formControlName="seat" placeholder="0" #inputSeat>
     </mat-form-field>
 
-    <mat-form-field floatLabel="always">
-      <mat-label>Marca</mat-label>
-      <mat-select>
-        <mat-option value="">---</mat-option>
-        <ng-container *ngFor="let brand of brands">
-          <mat-option [value]="brand.id">{{brand.name}}</mat-option>
-        </ng-container>
-      </mat-select>
-    </mat-form-field>
 
-    <mat-form-field floatLabel="always">
-      <mat-checkbox class="me-2" formControlName="abs">Abs</mat-checkbox>
-    </mat-form-field>
-    <mat-form-field floatLabel="always">
-      <mat-checkbox class="me-2" formControlName="airbag">AirBag</mat-checkbox>
-    </mat-form-field>
+    <mat-label>Marca</mat-label>
+    <mat-select formControlName="brand_id">
+      <mat-option value="">---</mat-option>
+      <ng-container *ngFor="let brand of brands">
+        <mat-option [value]="brand.id"><img [src]="baseFileUrl+'/'+brand.image_url"
+            class="carModel-form__brand" />{{brand.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+    <mat-checkbox formControlName="abs">ABS</mat-checkbox>
+    <mat-checkbox formControlName="airbag">Airbag</mat-checkbox>
+
+
   </form>
 </div>
 <div mat-dialog-actions>

@@ -28,6 +28,10 @@
         <ng-container *ngIf="colum.type == 'money'">
           R$ {{ element[colum.field]}}
         </ng-container>
+
+        <ng-container *ngIf="colum.type == 'boolean'">
+          {{ element[colum.field] ? 'Sim' : 'Não'}}
+        </ng-container>
       </td>
     </ng-container>
 

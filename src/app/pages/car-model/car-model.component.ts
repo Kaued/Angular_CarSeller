@@ -5,9 +5,11 @@ import { DeleteCarModelComponent } from 'src/app/components/delete-car-model/del
 import { FormCarModelComponent } from 'src/app/components/form-car-model/form-car-model.component';
 import { InfoCarModelComponent } from 'src/app/components/info-car-model/info-car-model.component';
 import { Actions } from 'src/app/interfaces/actions';
+import { CarModelBrand } from 'src/app/interfaces/car-model-brand';
 import { CarModelValues } from 'src/app/interfaces/car-model-values';
 import { ColumnsTable } from 'src/app/interfaces/columns-table';
 import { Search } from 'src/app/interfaces/search';
+import { BrandService } from 'src/app/services/brand.service';
 import { CarModelService } from 'src/app/services/car-model.service';
 
 @Component({
@@ -29,9 +31,9 @@ export class CarModelComponent {
     { column: "year", field: "year", name: "Ano", type: "text" },
     { column: "doors", field: "doors", name: "Portas", type: "text" },
     { column: "seat", field: "seat", name: "Assentos", type: "text" },
-    { column: "airbag", field: "airbag", name: "Airbag", type: "text" },
-    { column: "abs", field: "abs", name: "abs", type: "text" },
-    { column: "brand", field: "brand_id", name: "Marca", type: "text" },
+    { column: "airbag", field: "airbag", name: "Airbag", type: "boolean" },
+    { column: "abs", field: "abs", name: "abs", type: "boolean" },
+    { column: "brand", field: "brand_image_url", name: "Marca", type: "image", baseApiUrL: true },
   ]
 
   actions: Actions[] = [
@@ -40,30 +42,41 @@ export class CarModelComponent {
     { target: 'remove', action: (id: number) => this.openDeleteCarModel(id) },
   ];
 
-  carModelsList: CarModelValues[] = [];
+  carModels: CarModelValues[] = [];
+  carModelsList: CarModelBrand[] = [];
+  carModelsListAuxiliar: CarModelBrand[] = [];
 
   displayedColumns: string[] = ["id", "name", "year", "doors", "seat", "airbag", "abs", "brand", "actions"];
 
-  constructor(public dialog: MatDialog, private carModelService: CarModelService) { }
+  constructor(public dialog: MatDialog, private carModelService: CarModelService, private brandService: BrandService) { }
 
   ngOnInit() {
     this.carModelService.getAllCarModel().subscribe((result) => {
-      this.carModelsList = result;
+      this.carModels = result;
+      this.carModelsListAuxiliar = [];  
+      this.carModels.map((carModel) => {
+        this.carModelsListAuxiliar.push({ ...carModel, brand_name: carModel.brand.name, brand_image_url: carModel.brand.image_url });
+      });
+      this.carModelsList = this.carModelsListAuxiliar;
     })
   }
 
   openDialogCreate(): void {
     const dialogRef = this.dialog.open(FormCarModelComponent, {
-      data: { name: "", year: "", doors: 0, seat:0, airbag:false, abs: false, brand_id:0, isAddMode: true },
+      data: { name: "", year: "", doors: 0, seat: 0, airbag: false, abs: false, brand_id: 0, isAddMode: true },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(resultCreate => {
 
-      if (result) {
-        console.log(result);
-        this.carModelService.createCarModel(result).subscribe(() => {
+      if (resultCreate) {
+        this.carModelService.createCarModel(resultCreate).subscribe(() => {
           this.carModelService.getAllCarModel().subscribe((result) => {
-            this.carModelsList = result
+            this.carModels = result;
+            this.carModelsListAuxiliar = [];
+            this.carModels.map((carModel) => {
+              this.carModelsListAuxiliar.push({ ...carModel, brand_name: carModel.brand.name, brand_image_url: carModel.brand.image_url });
+            });
+            this.carModelsList = this.carModelsListAuxiliar;
           })
         });
       }
@@ -77,11 +90,16 @@ export class CarModelComponent {
         data: { ...result, isAddMode: false },
       });
 
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          this.carModelService.updateCarModel(result).subscribe(() => {
+      dialogRef.afterClosed().subscribe(resultEdit => {
+        if (resultEdit) {
+          this.carModelService.updateCarModel(resultEdit).subscribe(() => {
             this.carModelService.getAllCarModel().subscribe((result) => {
-              this.carModelsList = result
+              this.carModels = result;
+              this.carModelsListAuxiliar = [];
+              this.carModels.map((carModel) => {
+                this.carModelsListAuxiliar.push({ ...carModel, brand_name: carModel.brand.name, brand_image_url: carModel.brand.image_url });
+              });
+              this.carModelsList = this.carModelsListAuxiliar;
             })
           });
         }
@@ -105,12 +123,16 @@ export class CarModelComponent {
       const dialogRef = this.dialog.open(DeleteCarModelComponent, {
         data: { ...result, isAddMode: false },
       });
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          this.carModelService.removeCarModel(result.id).subscribe(() => {
-            console.log(1);
+      dialogRef.afterClosed().subscribe(resultDel => {
+        if (resultDel) {
+          this.carModelService.removeCarModel(resultDel.id).subscribe(() => {
             this.carModelService.getAllCarModel().subscribe((result) => {
-              this.carModelsList = result;
+              this.carModels = result;
+              this.carModelsListAuxiliar=[];
+              this.carModels.map((carModel) => {
+                this.carModelsListAuxiliar.push({ ...carModel, brand_name: carModel.brand.name, brand_image_url: carModel.brand.image_url });
+              });
+              this.carModelsList = this.carModelsListAuxiliar;
             })
           });
         }
@@ -120,7 +142,12 @@ export class CarModelComponent {
 
   searchCarModel(search: Search) {
     this.carModelService.getAllCarModel(search.search).subscribe((result) => {
-      this.carModelsList = result;
+      this.carModels = result;
+      this.carModelsListAuxiliar = [];
+      this.carModels.map((carModel) => {
+        this.carModelsListAuxiliar.push({ ...carModel, brand_name: carModel.brand.name, brand_image_url: carModel.brand.image_url });
+      });
+      this.carModelsList = this.carModelsListAuxiliar;
     })
   }
 }
