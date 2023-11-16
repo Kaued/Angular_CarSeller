@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Preencha os campos</p>
+  <form [formGroup]="carForm" class="car-form">
+    <mat-label>Modelo</mat-label>
+    <mat-select formControlName="car_model_id">
+      <mat-option value="">---</mat-option>
+      <ng-container *ngFor="let car_model of carModels">
+        <mat-option [value]="car_model.id">{{car_model.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="price" placeholder="0" #inputPrice>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Km</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="km" placeholder="0" #inputKm>
+    </mat-form-field>
+
+    <span>Imagem</span>
+    <app-dropzone accept="image/*" [maxFileSize]="51200" [multiple]="false" (file)="onChangeFile($event)"
+      [initialFile]="initialFile"></app-dropzone>
+
+
+    <mat-checkbox *ngIf="!data.isAddMode" formControlName="sold">Vendido</mat-checkbox>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Cancelar</button>
+  <button mat-button cdkFocusInitial color="primary" (click)="onSubmit()">Adicionar</button>
+</div>

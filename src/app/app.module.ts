@@ -42,6 +42,10 @@ import { CarModelComponent } from './pages/car-model/car-model.component';
 import { FormCarModelComponent } from './components/form-car-model/form-car-model.component';
 import { DeleteCarModelComponent } from './components/delete-car-model/delete-car-model.component';
 import { InfoCarModelComponent } from './components/info-car-model/info-car-model.component';
+import { CarComponent } from './pages/car/car.component';
+import { FormCarComponent } from './components/form-car/form-car.component';
+import { DeleteCarComponent } from './components/delete-car/delete-car.component';
+import { InfoCarComponent } from './components/info-car/info-car.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +73,10 @@ import { InfoCarModelComponent } from './components/info-car-model/info-car-mode
     FormCarModelComponent,
     DeleteCarModelComponent,
     InfoCarModelComponent,
+    CarComponent,
+    FormCarComponent,
+    DeleteCarComponent,
+    InfoCarComponent,
   ],
   imports: [
     BrowserModule,

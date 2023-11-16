@@ -19,10 +19,11 @@ export class InfoBrandComponent {
   ) { }
 
   ngOnInit() {
-    this.title = `Marca ${this.data.name}`
+    this.title = `Marca ${this.data.name}`;
+    this.image = `${environment.baseApiUrl}/${this.data.image_url}`;
   }
   onNoClick(): void {
     this.dialogRef.close();
-    this.image = `${environment.baseApiUrl}/${this.data.image_url}`
+    this.image = `${environment.baseApiUrl}/${this.data.image_url}`;
   }
 }

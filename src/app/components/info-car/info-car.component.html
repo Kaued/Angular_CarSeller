@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>Dados do Carro</p>
+  <div class="car-view">
+    <div class="car-view__item">
+      <strong>Preço:</strong>
+      <span>{{ data.price }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Km:</strong>
+      <span>{{ data.km }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Vendido:</strong>
+      <span>{{ data.sold ? 'Sim' : 'Não' }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Imagem:</strong>
+      <span>{{ data.car_model?.name }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Nome:</strong>
+      <span>{{ data.car_model?.name }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Ano:</strong>
+      <span>{{ data.car_model?.year }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Portas:</strong>
+      <span>{{ data.car_model?.doors }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Assentos:</strong>
+      <span>{{ data.car_model?.seat }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>AirBag:</strong>
+      <span>{{ data.car_model?.airbag ? 'Sim' : 'Não' }}</span>
+    </div>
+    <div class="car-view__item">
+      <strong>Abs:</strong>
+      <span>{{ data.car_model?.abs ? 'Sim' : 'Não' }}</span>
+    </div>
+    <div class="car-view__item d-block">
+      <strong class="w-100 d-block">Imagem:</strong>
+      <img [src]="image" />
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Fechar</button>
+</div>

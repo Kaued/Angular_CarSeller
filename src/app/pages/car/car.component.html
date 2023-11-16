@@ -1,0 +1,14 @@
+<section class="car">
+  <header>
+    <h1>
+      Lista de Carro
+    </h1>
+    <button mat-raised-button color="primary" aria-label="Ver" (click)="openDialogCreate()">
+      <fa-icon [icon]="faPlus">Adicionar</fa-icon> Criar Carro
+    </button>
+  </header>
+  <main class="car-content">
+    <app-table [isLoading]="isLoading" [dataSource]="carsList" [columns]="columns" [actions]="actions"
+      searchLabel="Preço a partir" term="price" (search)="searchCar($event)"></app-table>
+  </main>
+</section>

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+  <p>O caro será deletado e nunca mais podera ser recuperado</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="primary">Fechar</button>
+  <button mat-button (click)="onDeleteClick()" color="warn">Deletar</button>
+</div>
